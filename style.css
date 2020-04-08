@@ -28,16 +28,44 @@ header h1{
 
 .discography main {
     grid-column: 1/-1;
-    display: grid;
+    /*display: grid;
     gap: 1.3rem;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));*/
 }
 
-.discography h2 {
+/*.discography h2 {
     grid-column: 1/-1;
+}*/
+
+.discography h2:after {
+    display: inline-block;
+    content: "+";
+    margin-left: 1rem;
+    color: #ccc;
+    font-weight: 100;
+    transition: all 0.2s;
+}
+
+.discography h2:open:after, .discography h2:hover:after {
+    transform: rotate(45deg)
+}
+
+.discography main > section {
+    display: grid;
+    gap: 1.3rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 /* .album > img + section > h3 */
+
+.collapsible {
+    height: 0px;
+    overflow: hidden;
+}
+
+.collapsible.open {
+    height: auto;
+}
 
 .album {
     display: grid;
