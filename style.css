@@ -1,3 +1,5 @@
+/*GENERAL*/
+
 *{
     box-sizing: border-box;
 }
@@ -27,6 +29,11 @@ img{
     grid-template-columns: 200px 1fr;
 }
 
+/*NAVIGATION*/
+nav svg {
+    width: 40px;
+}
+
 header h1{
     background-image: url(images/logo.png);
     background-repeat: no-repeat;
@@ -34,6 +41,44 @@ header h1{
     height: 80px;
     text-indent: -9999px;
 }
+
+/*BURGER START*/
+
+svg rect {
+    transition: all 0.2s;
+    transform-origin: 50% 50%;
+}
+
+.open rect:nth-child(2), .open rect:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+rect:nth-child(2), rect:nth-child(3) {
+    transition-delay: 0s;
+}
+
+.open rect:first-child {
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+.open rect:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.open rect:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.open rect:last-child {
+    transform: translateY(-30px);
+    opacity: 0;
+}
+
+/*BURGER END*/
+
+
+/*MAIN*/
 
 .discography main {
     grid-column: 1/-1;
@@ -76,6 +121,9 @@ header h1{
     height: auto;
 }
 
+
+/*ALBUM/ CART*/
+
 .album {
     display: grid;
     overflow: hidden;
@@ -107,6 +155,9 @@ header h1{
     text-transform: uppercase;
     padding: 2rem;
 }
+
+
+/*BREAK POINTS*/
 
 @media only screen and (min-width:1000px) {
 
