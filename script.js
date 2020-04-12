@@ -16,6 +16,10 @@ function setup(){
 }
 
 function setupBurgerNav(){
-    const burger = document.querySelector("nav svg");
-    burger.addEventListener("click", e=>burger.classList.toggle("open"));
+    const burger = document.querySelector("header svg");
+    const nav = document.querySelector("nav");
+    burger.addEventListener("click", e=> {
+        burger.classList.toggle("open");
+        nav.classList.toggle("open");
+    });
 }

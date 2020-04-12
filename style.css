@@ -1,5 +1,10 @@
 /*GENERAL*/
 
+:root {
+    --font-color: #000;
+    --font-accent: #ccc;
+}
+
 *{
     box-sizing: border-box;
 }
@@ -12,6 +17,7 @@ body, html{
     font-size: 10px;
     line-height: 2rem;
     letter-spacing: 2.8px;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -29,9 +35,15 @@ img{
     grid-template-columns: 200px 1fr;
 }
 
-/*NAVIGATION*/
-nav svg {
+header {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: space-between;
+}
+
+header svg {
     width: 40px;
+    cursor: pointer;
 }
 
 header h1{
@@ -41,6 +53,58 @@ header h1{
     height: 80px;
     text-indent: -9999px;
 }
+
+/*NAVIGATION START*/
+
+nav a {
+    font-size: 1.4rem;
+    display: block;
+    text-decoration: none;
+    color: var( --font-color);
+    margin-top: 1.4rem;
+    margin-bottom: 1.8rem;
+    transition: color 0.2s 0.1s;
+}
+
+nav a:hover {
+    color: var(--font-accent);
+}
+
+nav .active {
+    font-weight: bold;
+}
+
+nav {
+    position: absolute;
+    right: -100vw;
+    top: 100px;
+    z-index: 10;
+    background: white;
+    width: 100vw;
+    height: calc(100vh - 100px);
+    padding: 4rem;
+    transition: transform 1s;
+}
+
+nav.open {
+    transform: translateX(-100vw)
+}
+
+@media only screen and (min-width:1000px) {
+    svg {
+        display: none;
+    }
+
+    nav {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 1rem;
+    }
+}
+
+/*NAVIGATION END*/
+
 
 /*BURGER START*/
 
@@ -95,7 +159,7 @@ rect:nth-child(2), rect:nth-child(3) {
     display: inline-block;
     content: "+";
     margin-left: 1rem;
-    color: #ccc;
+    color: var(--font-accent);
     font-weight: 100;
     transition: all 0.2s;
 }
@@ -139,7 +203,7 @@ rect:nth-child(2), rect:nth-child(3) {
     width: 100%;
     grid-column: 1/-1;
     grid-row: 1/-1;
-    border: 1px solid #ccc;
+    border: 1px solid var(--font-accent);
 }
 
 .album section {
