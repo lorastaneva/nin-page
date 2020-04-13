@@ -1,0 +1,20 @@
+Original website -> https://www.nin.com/discography/
+Youtube playlist -> https://www.youtube.com/playlist?list=PLCx1FpZ4Dtb2on71Dm8LSRNZCZ6VXAwAS
+GitHub -> https://github.com/askja7/nin-page
+On my domain -> lorastaneva.com/kea-projects/second-semester/cms/nin-page
+WP data from -> http://lorastaneva.com/kea-projects/second-semester/cms/recreate
+
+
+Pods:
+- title (WP title)
+- cover (WP featured image)
+- description (WP editor)
+- tracklist
+- more info link (fixed) (optional)
+- buy from [] (optional)
+- play []
+- category (ex: main releases, singles, all halos, film work, etc) (WP categories)
+- year
+
+
+
