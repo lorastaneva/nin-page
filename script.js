@@ -35,6 +35,26 @@ function getCategories(){
     .then(setupCategories);
 }
 
+function getTheAlbums(){
+    fetch("http://lorastaneva.com/kea-projects/second-semester/cms/recreate/wp-json/wp/v2/album?per_page=100&_embed")
+    .then(res=>res.json())
+    .then(setupAlbums)
+}
+
+function setupAlbums(albumArray) {
+    console.log(albumArray);
+    const template = document.querySelector("template#albumtemplate").content;
+    const parentElement = document.querySelector(".discography main section");
+    albumArray.forEach(album=>{
+        const copy = template.cloneNode(true);
+        copy.querySelector("img").src=album._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
+        copy.querySelector("h3").textContent=`${album.title.rendered} [${album.year}]`
+        parentElement.appendChild(copy);
+    });
+    document.querySelector("main h2").classList.add("open");
+    document.querySelector("main section.collapsible").classList.add("open");
+}
+
 function setupCategories(catArray) {
     const template = document.querySelector("template#categorytemplate").content;
     const parentElement = document.querySelector("main");
@@ -46,4 +66,5 @@ function setupCategories(catArray) {
     document.querySelector("main h2").classList.add("open");
     document.querySelector("main section.collapsible").classList.add("open");
     setupAccordion();
+    getTheAlbums();
 }
