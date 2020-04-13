@@ -164,8 +164,9 @@ rect:nth-child(2), rect:nth-child(3) {
     transition: all 0.2s;
 }
 
-.discography h2:open:after, .discography h2:hover:after {
-    transform: rotate(45deg)
+.discography h2.open:after,
+.discography h2:hover:after {
+    transform: rotate(45deg);
 }
 
 .discography main > section {
